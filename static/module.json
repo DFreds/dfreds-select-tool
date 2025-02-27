@@ -15,7 +15,12 @@
     "packFolders": [],
     "relationships": {
         "systems": [],
-        "requires": []
+        "requires": [
+            {
+                "id": "lib-dfreds-ui-extender",
+                "type": "module"
+            }
+        ]
     },
     "languages": [
         {

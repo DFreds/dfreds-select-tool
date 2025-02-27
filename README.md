@@ -32,3 +32,7 @@
 <p align="center">
     <b>DFreds Select Tool</b> is a FoundryVTT module that adds a select tool to all layers.
 </p>
+
+## Required Modules
+
+- [Lib: DFreds UI Extender](https://foundryvtt.com/packages/lib-dfreds-ui-extender) by DFreds (that's me) - A library that makes it easy to add new UI elements to Foundry

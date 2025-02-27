@@ -2,8 +2,6 @@ import { MODULE_ID } from "../constants.ts";
 import { buildItems } from "../toolclip-item-builder.ts";
 import { Listener } from "./index.ts";
 
-type LayerName = "lighting" | "sounds" | "templates";
-
 type SceneControlName = "lighting" | "sounds" | "measure";
 
 const UiExtenderInit: Listener = {
@@ -11,54 +9,82 @@ const UiExtenderInit: Listener = {
         Hooks.once("uiExtender.init", (uiExt: any) => {
             const uiExtender = uiExt as UiExtender;
 
-            const mapping: Record<SceneControlName, LayerName> = {
-                measure: "templates",
-                lighting: "lighting",
-                sounds: "sounds",
+            const lightingTool: SceneControlTool = {
+                name: `select`,
+                title: EN_JSON.SelectTool.Controls.LightingHeading,
+                icon: "fa-solid fa-expand",
+                visible: true,
+                toolclip: {
+                    src: `modules/dfreds-select-tool/toolclips/select-lighting.webm`,
+                    heading: EN_JSON.SelectTool.Controls.LightingHeading,
+                    items: buildItems(
+                        "selectAlt",
+                        "selectMultiple",
+                        "move",
+                        "rotate",
+                        "onOff",
+                        "edit",
+                        "delete",
+                    ),
+                },
             };
 
-            Object.entries(mapping).forEach(([sceneControlName, layerName]) => {
-                const sceneControlTool: SceneControlTool = {
-                    // NOTE: Name must be select, because Foundry VTT expects
-                    // the active tool to be named select if it is for selection
-                    name: `select`,
-                    title: game.i18n.format(
-                        EN_JSON.SelectTool.Controls.SelectHeading,
-                        {
-                            layerName: layerName.capitalize(),
-                        },
+            const soundsTool: SceneControlTool = {
+                name: `select`,
+                title: EN_JSON.SelectTool.Controls.SoundsHeading,
+                icon: "fa-solid fa-expand",
+                visible: true,
+                toolclip: {
+                    src: `modules/dfreds-select-tool/toolclips/select-sounds.webm`,
+                    heading: EN_JSON.SelectTool.Controls.SoundsHeading,
+                    items: buildItems(
+                        "selectAlt",
+                        "selectMultiple",
+                        "move",
+                        "rotate",
+                        "onOff",
+                        "edit",
+                        "delete",
                     ),
-                    icon: "fa-solid fa-expand",
-                    visible: true,
-                    toolclip: {
-                        src: `modules/dfreds-select-tool/toolclips/select-${layerName}.webm`,
-                        heading: game.i18n.format(
-                            EN_JSON.SelectTool.Controls.SelectHeading,
-                            {
-                                layerName: layerName.capitalize(),
-                            },
-                        ),
-                        items: buildItems(
-                            "selectAlt",
-                            "selectMultiple",
-                            "move",
-                            "rotate",
-                            "hud",
-                            "edit",
-                            "delete",
-                        ),
-                    },
-                };
+                },
+            };
 
-                uiExtender.registerSceneControl({
-                    moduleId: MODULE_ID,
-                    name: sceneControlName as SceneControlName,
-                    tool: {
-                        ...sceneControlTool,
-                    },
-                    position: 0,
-                });
-            });
+            const templatesTool: SceneControlTool = {
+                name: `select`,
+                title: EN_JSON.SelectTool.Controls.TemplatesHeading,
+                icon: "fa-solid fa-expand",
+                visible: true,
+                toolclip: {
+                    src: `modules/dfreds-select-tool/toolclips/select-templates.webm`,
+                    heading: EN_JSON.SelectTool.Controls.TemplatesHeading,
+                    items: buildItems(
+                        "selectAlt",
+                        "selectMultiple",
+                        "move",
+                        "rotate",
+                        "edit",
+                        "hide",
+                        "delete",
+                    ),
+                },
+            };
+
+            const mapping: Record<SceneControlName, SceneControlTool> = {
+                measure: templatesTool,
+                lighting: lightingTool,
+                sounds: soundsTool,
+            };
+
+            Object.entries(mapping).forEach(
+                ([sceneControlName, sceneControlTool]) => {
+                    uiExtender.registerSceneControl({
+                        moduleId: MODULE_ID,
+                        name: sceneControlName as SceneControlName,
+                        tool: sceneControlTool,
+                        position: 0,
+                    });
+                },
+            );
         });
     },
 };

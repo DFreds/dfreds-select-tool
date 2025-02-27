@@ -1,7 +1,9 @@
 {
     "SelectTool": {
         "Controls": {
-            "SelectHeading": "Select {layerName}"
+            "LightingHeading": "Select Lighting",
+            "SoundsHeading": "Select Sounds",
+            "TemplatesHeading": "Select Templates"
         }
     }
 }

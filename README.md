@@ -41,7 +41,20 @@ or notes? Well, this module is for you!
 
 ## What This Module Does
 
-This module adds a select tool to all layers.
+This module adds a select tool to all layers, including templates, lights,
+sounds, and notes.
+
+Lighting:
+
+![Select Lighting](docs/select-lighting.png)
+
+Sounds:
+
+![Select Sounds](docs/select-sounds.png)
+
+Templates:
+
+![Select Templates](docs/select-templates.png)
 
 ## Required Modules
 
@@ -49,7 +62,7 @@ This module adds a select tool to all layers.
 
 ## Modules That Help
 
-- [DFreds Clipboard](https://www.patreon.com/dfreds/shop/dfreds-clipboard-v1-0-0-1159963)!) by DFreds
+- [DFreds Clipboard](https://www.patreon.com/dfreds/shop/dfreds-clipboard-v1-0-0-1159963) by DFreds
   (that's me) - One of my premium FoundryVTT modules that adds a clipboard
   application to the game that keeps track of the items you copied. It pairs
   nicely with this module.

@@ -1,4 +1,5 @@
 import { MODULE_ID } from "../constants.ts";
+import { buildItems } from "../toolclip-item-builder.ts";
 import { Listener } from "./index.ts";
 
 type LayerName = "lighting" | "sounds" | "templates";
@@ -10,34 +11,50 @@ const UiExtenderInit: Listener = {
         Hooks.once("uiExtender.init", (uiExt: any) => {
             const uiExtender = uiExt as UiExtender;
 
-            // TODO handle notes specifically - select tool exists but doesn't allow multiple selection
             const mapping: Record<SceneControlName, LayerName> = {
                 measure: "templates",
                 lighting: "lighting",
                 sounds: "sounds",
             };
 
-            Object.entries(mapping).forEach(([key, value]) => {
+            Object.entries(mapping).forEach(([sceneControlName, layerName]) => {
                 const sceneControlTool: SceneControlTool = {
                     // NOTE: Name must be select, because Foundry VTT expects
                     // the active tool to be named select if it is for selection
                     name: `select`,
                     title: game.i18n.format(
-                        EN_JSON.SelectTool.Controls.Select,
+                        EN_JSON.SelectTool.Controls.SelectHeading,
                         {
-                            layerName: value.capitalize(),
+                            layerName: layerName.capitalize(),
                         },
                     ),
-                    icon: "fas fa-expand",
+                    icon: "fa-solid fa-expand",
                     visible: true,
+                    toolclip: {
+                        src: `modules/dfreds-select-tool/toolclips/select-${layerName}.webm`,
+                        heading: game.i18n.format(
+                            EN_JSON.SelectTool.Controls.SelectHeading,
+                            {
+                                layerName: layerName.capitalize(),
+                            },
+                        ),
+                        items: buildItems(
+                            "selectAlt",
+                            "selectMultiple",
+                            "move",
+                            "rotate",
+                            "hud",
+                            "edit",
+                            "delete",
+                        ),
+                    },
                 };
 
                 uiExtender.registerSceneControl({
                     moduleId: MODULE_ID,
-                    name: key as SceneControlName,
+                    name: sceneControlName as SceneControlName,
                     tool: {
                         ...sceneControlTool,
-                        onClick: () => {},
                     },
                     position: 0,
                 });

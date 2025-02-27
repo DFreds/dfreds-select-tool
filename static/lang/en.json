@@ -1,13 +1,7 @@
 {
     "SelectTool": {
         "Controls": {
-            "Select": "Select {layerName}"
-        },
-        "Settings": {
-            "SampleSetting": {
-                "Name": "Sample Setting Name",
-                "Hint": "Sample setting hint"
-            }
+            "SelectHeading": "Select {layerName}"
         }
     }
 }

@@ -18,6 +18,11 @@ const CanvasReady: Listener = {
             if (templateLayer) {
                 templateLayer.options.controllableObjects = true;
             }
+
+            const notesLayer = canvas.getLayerByEmbeddedName("Note");
+            if (notesLayer) {
+                notesLayer.options.controllableObjects = true;
+            }
         });
     },
 };

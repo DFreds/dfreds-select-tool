@@ -1,13 +1,10 @@
-import { Init } from "./init.ts";
-import { Setup } from "./setup.ts";
-
 interface Listener {
     listen(): void;
 }
 
-const HooksModule: Listener = {
+const HooksSelectTool: Listener = {
     listen(): void {
-        const listeners: Listener[] = [Init, Setup];
+        const listeners: Listener[] = [];
 
         for (const listener of listeners) {
             listener.listen();
@@ -15,5 +12,5 @@ const HooksModule: Listener = {
     },
 };
 
-export { HooksModule };
+export { HooksSelectTool };
 export type { Listener };

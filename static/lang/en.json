@@ -1,5 +1,8 @@
 {
-    "ModuleTemplate": {
+    "SelectTool": {
+        "Controls": {
+            "Select": "Select {layerName}"
+        },
         "Settings": {
             "SampleSetting": {
                 "Name": "Sample Setting Name",

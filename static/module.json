@@ -8,7 +8,7 @@
         "verified": 12,
         "maximum": 12
     },
-    "esmodules": ["vendor.mjs", "dfreds-select-tool.mjs"],
+    "esmodules": ["dfreds-select-tool.mjs"],
     "scripts": [],
     "styles": ["styles/dfreds-select-tool.css"],
     "packs": [],

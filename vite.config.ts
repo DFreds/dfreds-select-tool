@@ -60,12 +60,10 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
             "./dfreds-select-tool.mjs",
             `/** ${message} */\n\nwindow.global = window;\nimport "./src/ts/module.ts";\n`,
         );
-        fs.writeFileSync("./vendor.mjs", `/** ${message} */\n`);
     }
 
     return {
-        base:
-            command === "build" ? "./" : `/modules/dfreds-select-tool/`,
+        base: command === "build" ? "./" : `/modules/dfreds-select-tool/`,
         publicDir: "static",
         define: {
             BUILD_MODE: JSON.stringify(buildMode),
@@ -116,8 +114,7 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
             port: 30001,
             open: false,
             proxy: {
-                "^(?!/modules/dfreds-select-tool/)":
-                    "http://localhost:30000/",
+                "^(?!/modules/dfreds-select-tool/)": "http://localhost:30000/",
                 "/socket.io": {
                     target: "ws://localhost:30000",
                     ws: true,
@@ -158,10 +155,7 @@ function deleteLockFilePlugin(): Vite.Plugin {
         },
         writeBundle(outputOptions) {
             const outDir = outputOptions.dir ?? "";
-            const lockFile = path.resolve(
-                outDir,
-                "dfreds-select-tool.lock",
-            );
+            const lockFile = path.resolve(outDir, "dfreds-select-tool.lock");
             fs.rmSync(lockFile);
         },
     };

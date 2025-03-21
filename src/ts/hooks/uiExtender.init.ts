@@ -11,12 +11,12 @@ const UiExtenderInit: Listener = {
 
             const lightingTool: SceneControlTool = {
                 name: `select`,
-                title: EN_JSON.SelectTool.Controls.LightingHeading,
+                title: "SelectTool.Controls.LightingHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
                 toolclip: {
                     src: `modules/dfreds-select-tool/toolclips/select-lighting.webm`,
-                    heading: EN_JSON.SelectTool.Controls.LightingHeading,
+                    heading: "SelectTool.Controls.LightingHeading",
                     items: buildItems(
                         "selectAlt",
                         "selectMultiple",
@@ -31,12 +31,12 @@ const UiExtenderInit: Listener = {
 
             const soundsTool: SceneControlTool = {
                 name: `select`,
-                title: EN_JSON.SelectTool.Controls.SoundsHeading,
+                title: "SelectTool.Controls.SoundsHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
                 toolclip: {
                     src: `modules/dfreds-select-tool/toolclips/select-sounds.webm`,
-                    heading: EN_JSON.SelectTool.Controls.SoundsHeading,
+                    heading: "SelectTool.Controls.SoundsHeading",
                     items: buildItems(
                         "selectAlt",
                         "selectMultiple",
@@ -51,12 +51,12 @@ const UiExtenderInit: Listener = {
 
             const templatesTool: SceneControlTool = {
                 name: `select`,
-                title: EN_JSON.SelectTool.Controls.TemplatesHeading,
+                title: "SelectTool.Controls.TemplatesHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
                 toolclip: {
                     src: `modules/dfreds-select-tool/toolclips/select-templates.webm`,
-                    heading: EN_JSON.SelectTool.Controls.TemplatesHeading,
+                    heading: "SelectTool.Controls.TemplatesHeading",
                     items: buildItems(
                         "selectAlt",
                         "selectMultiple",

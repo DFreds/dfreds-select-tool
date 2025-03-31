@@ -1,5 +1,5 @@
 // NOTE: This is a copy of the common controls from the Foundry VTT source code (controls.js)
-const commonControls = {
+const commonToolclipItems = {
     create: {
         heading: "CONTROLS.CommonCreate",
         reference: "CONTROLS.ClickDrag",
@@ -66,9 +66,11 @@ const commonControls = {
     },
 };
 
-const buildItems = (...items: string[]): ToolclipConfigurationItem[] => {
+const buildItems = (
+    ...items: (keyof typeof commonToolclipItems)[]
+): ToolclipConfigurationItemInput[] => {
     return items.map(
-        (item) => commonControls[item as keyof typeof commonControls],
+        (item) => commonToolclipItems[item as keyof typeof commonToolclipItems],
     );
 };
 

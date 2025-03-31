@@ -2,15 +2,14 @@ import { MODULE_ID } from "../constants.ts";
 import { buildItems } from "../toolclip-item-builder.ts";
 import { Listener } from "./index.ts";
 
-type SceneControlName = "lighting" | "sounds" | "measure";
-
 const UiExtenderInit: Listener = {
     listen(): void {
         Hooks.once("uiExtender.init", (uiExt: any) => {
             const uiExtender = uiExt as UiExtender;
 
-            const lightingTool: SceneControlTool = {
+            const lightingTool: SceneControlToolInput = {
                 name: `select`,
+                order: 1,
                 title: "SelectTool.Controls.LightingHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
@@ -29,8 +28,9 @@ const UiExtenderInit: Listener = {
                 },
             };
 
-            const soundsTool: SceneControlTool = {
+            const soundsTool: SceneControlToolInput = {
                 name: `select`,
+                order: 1,
                 title: "SelectTool.Controls.SoundsHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
@@ -49,8 +49,9 @@ const UiExtenderInit: Listener = {
                 },
             };
 
-            const templatesTool: SceneControlTool = {
+            const templatesTool: SceneControlToolInput = {
                 name: `select`,
+                order: 1,
                 title: "SelectTool.Controls.TemplatesHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
@@ -69,8 +70,8 @@ const UiExtenderInit: Listener = {
                 },
             };
 
-            const mapping: Record<SceneControlName, SceneControlTool> = {
-                measure: templatesTool,
+            const mapping: Record<string, SceneControlToolInput> = {
+                templates: templatesTool,
                 lighting: lightingTool,
                 sounds: soundsTool,
             };
@@ -79,9 +80,11 @@ const UiExtenderInit: Listener = {
                 ([sceneControlName, sceneControlTool]) => {
                     uiExtender.registerSceneControl({
                         moduleId: MODULE_ID,
-                        name: sceneControlName as SceneControlName,
+                        name: sceneControlName as
+                            | "templates"
+                            | "lighting"
+                            | "sounds",
                         tool: sceneControlTool,
-                        position: 0,
                     });
                 },
             );

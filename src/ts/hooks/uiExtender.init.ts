@@ -9,7 +9,7 @@ const UiExtenderInit: Listener = {
 
             const lightingTool: SceneControlToolInput = {
                 name: `select`,
-                order: 1,
+                order: 0,
                 title: "SelectTool.Controls.LightingHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
@@ -30,7 +30,7 @@ const UiExtenderInit: Listener = {
 
             const soundsTool: SceneControlToolInput = {
                 name: `select`,
-                order: 1,
+                order: 0,
                 title: "SelectTool.Controls.SoundsHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,
@@ -51,7 +51,7 @@ const UiExtenderInit: Listener = {
 
             const templatesTool: SceneControlToolInput = {
                 name: `select`,
-                order: 1,
+                order: 0,
                 title: "SelectTool.Controls.TemplatesHeading",
                 icon: "fa-solid fa-expand",
                 visible: true,

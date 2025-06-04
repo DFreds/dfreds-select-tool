@@ -1,7 +1,7 @@
 {
     "id": "dfreds-select-tool",
     "title": "DFreds Select Tool",
-    "description": "A FoundryVTT template module using typescript and vite",
+    "description": "A FoundryVTT module that adds a select tool to all layers.",
     "version": "1.0.0",
     "compatibility": {
         "minimum": 13,

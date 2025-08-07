@@ -1,6 +1,7 @@
 import { CanvasReady } from "./canvasReady.ts";
 import { UiExtenderInit } from "./uiExtender.init.ts";
 import { RefreshPlaceable } from "./refreshPlaceable.ts";
+import { Setup } from "./setup.ts";
 
 interface Listener {
     listen(): void;
@@ -9,6 +10,7 @@ interface Listener {
 const HooksSelectTool: Listener = {
     listen(): void {
         const listeners: Listener[] = [
+            Setup,
             UiExtenderInit,
             CanvasReady,
             RefreshPlaceable,

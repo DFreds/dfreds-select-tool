@@ -1,8 +1,9 @@
+import { Canvas } from "@client/canvas/_module.mjs";
 import { Listener } from "./index.ts";
 
 const CanvasReady: Listener = {
     listen(): void {
-        Hooks.once("canvasReady", (canvas: DrawnCanvas) => {
+        Hooks.once("canvasReady", (canvas: Canvas) => {
             const lightLayer = canvas.getLayerByEmbeddedName("AmbientLight");
             if (lightLayer) {
                 lightLayer.options.controllableObjects = true;

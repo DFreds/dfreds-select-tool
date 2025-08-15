@@ -6,7 +6,9 @@ import { AmbientLight } from "@client/canvas/placeables/_module.mjs";
 const Setup: Listener = {
     listen(): void {
         Hooks.once("setup", () => {
-            CONFIG.debug.hooks = BUILD_MODE === "development";
+            if (BUILD_MODE === "development") {
+                CONFIG.debug.hooks = true;
+            }
 
             libWrapper.register(
                 MODULE_ID,

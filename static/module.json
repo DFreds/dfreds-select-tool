@@ -18,7 +18,8 @@
         "requires": [
             {
                 "id": "lib-dfreds-ui-extender",
-                "type": "module"
+                "type": "module",
+                "verified": "2.2.0"
             }
         ]
     },
